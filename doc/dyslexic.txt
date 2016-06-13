@@ -1,0 +1,114 @@
+*dyslexic.txt* *dyslexic*
+		         _           _           _      ~
+		      __| |_   _ ___| | _____  _(_) ___ ~
+		     / _` | | | / __| |/ _ \ \/ / |/ __|~
+		    | (_| | |_| \__ \ |  __/>  <| | (__ ~
+		     \__,_|\__, |___/_|\___/_/\_\_|\___|~
+		           |___/                        ~
+
+==============================================================================
+INTRO                                                          *dyslexic-intro*
+
+|dyslexic| helps you find misspelled text by searching for |word| permutations.
+
+
+==============================================================================
+USAGE                                                          *dyslexic-usage*
+
+While the cursor is over a /known and correct/ word, pressing the
+|dyslexic-map| key will search for permutations of that word.  If there are
+matches, the |location-window| will open to display them.  From there, you can
+review the matches to see if any of them are incorrect.
+
+See also |dyslexic-notes|
+
+
+==============================================================================
+COMMANDS                                                    *dyslexic-commands*
+
+							   *:DyslexicTracking*
+:DyslexicTracking		Toggles cursor tracking to highlight
+				permutations while moving the cursor.  The
+				|location-list| will not be opened while this
+				is enabled.  Calling this command again will
+				turn cursor tracking off.  Pressing the
+				|dyslexic-map| key will search for
+				permutations and disable cursor tracking.
+
+								*:DyslexicOff*
+:DyslexicOff			Turns off the highlighting and cursor
+				tracking.
+
+
+==============================================================================
+CONFIG                                                        *dyslexic-config*
+
+							      *g:dyslexic_map*
+								*dyslexic-map*
+g:dyslexic_map			Set the key map to toggle permutation
+				highlighting.  Setting this to an empty value
+				will disable mapping.
+
+				If you want to set the map yourself, will need
+				to map `<Plug>(Dyslexic)` to a key.
+
+				Default: `<localleader>*`
+
+
+==============================================================================
+HIGHLIGHT                                                  *dyslexic-highlight*
+
+								 *hl-Dyslexic*
+Dyslexic			This is the highlight group for matching
+				permutations.  It is recommended that you set
+				this to something different from the
+				|hl-Search| group.
+
+				Default: `ctermfg=0`
+					 `ctermbg=6`
+					 `guifg=#000000`
+					 `guibg=#00ffff`
+
+
+==============================================================================
+NOTES                                                          *dyslexic-notes*
+
+If the cursor is over a misspelled word, it will match the other correctly
+spelled words.  If I (or you) am ever bored enough to, Levenshtein Distance
+and tf-idf scoring might be an interesting way to rank which words are likely
+to be the misspelled variants.
+
+The pattern that's created is not a fuzzy search.  It searches for transposed
+characters, single character substitution, and 1-2 character additions between
+each character.
+
+Since the generated pattern covers different variations of the word, a long
+word can potentially create a very large pattern.  I don't know if there's
+limitations to the size of a pattern in Vim or how a very large pattern will
+affect performance.  Keep this in mind and make sure your code is in a safe
+state before searching for permutations on those crazy long Java class names.
+
+
+==============================================================================
+LICENSE                                                      *dyslexic-license*
+
+The MIT License
+Copyright (c) 2016 Tommy Allen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
