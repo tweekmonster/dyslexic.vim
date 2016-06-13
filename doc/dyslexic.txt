@@ -9,7 +9,7 @@
 ==============================================================================
 INTRO                                                          *dyslexic-intro*
 
-|dyslexic| helps you find misspelled text by searching for |word| permutations.
+|dyslexic| helps you find mistyped text by searching for |word| permutations.
 
 
 ==============================================================================
@@ -73,10 +73,10 @@ Dyslexic			This is the highlight group for matching
 ==============================================================================
 NOTES                                                          *dyslexic-notes*
 
-If the cursor is over a misspelled word, it will match the other correctly
+If the cursor is over a mistyped word, it will match the other correctly
 spelled words.  If I (or you) am ever bored enough to, Levenshtein Distance
 and tf-idf scoring might be an interesting way to rank which words are likely
-to be the misspelled variants.
+to be the mistyped variants.
 
 The pattern that's created is not a fuzzy search.  It searches for transposed
 characters, single character substitution, and 1-2 character additions between

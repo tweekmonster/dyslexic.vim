@@ -1,6 +1,6 @@
 # dyslexic.vim
 
-`dyslexic.vim` is a Vim plugin that helps you find misspelled text by searching
+`dyslexic.vim` is a Vim plugin that helps you find mistyped text by searching
 for `word` permutations.
 
 ![dyslexic](https://cloud.githubusercontent.com/assets/111942/15996809/0f767d6c-30fa-11e6-9070-55ca30a2da01.gif)
@@ -33,7 +33,7 @@ It searches for transposed or missing characters, and looks for 1-2 extra
 characters between each character in `var`.
 
 This would cause the word `not` to match `no` or `note`, which may not be
-misspellings.  This is the reason you have to verify the results yourself.
+mistyped.  This is the reason you have to verify the results yourself.
 
 **Note**: The pattern can get pretty big with long words.  This was not tested
 for pattern length limits or performance.
