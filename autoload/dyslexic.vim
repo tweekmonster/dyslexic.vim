@@ -113,6 +113,11 @@ function! dyslexic#highlihgt(cursor) abort
   if !a:cursor
     keepalt belowright lopen
     call s:setmatch(pattern)
+    syntax match qfFileName "[^|]*" contained nextgroup=qfSeparator
+    syntax match qfHiddenPath '^\%([^/]\+/\)*' conceal nextgroup=qfFileName
+    if &l:conceallevel == 0
+      setlocal conceallevel=1
+    endif
     wincmd p
   endif
 endfunction
